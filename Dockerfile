@@ -9,7 +9,8 @@ RUN apt-get update -q \
 	&& tar -xf /tmp/rancher-compose-linux-amd64-${RANCHER_COMPOSE_VERSION}.tar.gz -C /tmp \
 	&& mv /tmp/rancher-compose-${RANCHER_COMPOSE_VERSION}/rancher-compose /usr/local/bin/rancher-compose \
 	&& rm -R /tmp/rancher-compose-linux-amd64-${RANCHER_COMPOSE_VERSION}.tar.gz /tmp/rancher-compose-${RANCHER_COMPOSE_VERSION}\
-	&& chmod +x /usr/local/bin/rancher-compose
+	&& chmod +x /usr/local/bin/rancher-compose \
+  && go get github.com/Masterminds/glide
 
 # Cleanup image
 RUN apt-get autoremove -y -q
