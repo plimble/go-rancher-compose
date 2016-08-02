@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:latest
 
 ENV RANCHER_COMPOSE_VERSION v0.9.0
 
