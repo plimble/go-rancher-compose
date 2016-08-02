@@ -15,4 +15,3 @@ RUN apt-get update -q \
 RUN apt-get autoremove -y -q
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /var/tmp/*
-
