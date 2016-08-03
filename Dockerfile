@@ -27,9 +27,14 @@ RUN set -x \
 	&& rm docker.tgz \
 	&& docker -v
 
-
-
 # Cleanup image
 RUN apt-get autoremove -y -q
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /var/tmp/*
+
+COPY docker-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["sh"]
+
