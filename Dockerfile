@@ -12,7 +12,8 @@ RUN apt-get update -q \
 	&& chmod +x /usr/local/bin/rancher-compose \
   && curl https://glide.sh/get | sh \
 	&& curl -L https://github.com/docker/compose/releases/download/1.8.0/run.sh > /usr/local/bin/docker-compose \
-	&& chmod +x /usr/local/bin/docker-compose
+	&& chmod +x /usr/local/bin/docker-compose \
+	&& curl -sSL https://get.docker.com/ | sh
 
 # Cleanup image
 RUN apt-get autoremove -y -q
