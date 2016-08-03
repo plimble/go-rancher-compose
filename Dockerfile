@@ -32,9 +32,6 @@ RUN apt-get autoremove -y -q
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /var/tmp/*
 
-COPY docker-entrypoint.sh /usr/local/bin/
+ENV DOCKER_HOST='tcp://docker:2375'
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-
-CMD ["sh"]
 
