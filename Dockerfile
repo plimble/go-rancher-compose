@@ -10,7 +10,9 @@ RUN apt-get update -q \
 	&& mv /tmp/rancher-compose-${RANCHER_COMPOSE_VERSION}/rancher-compose /usr/local/bin/rancher-compose \
 	&& rm -R /tmp/rancher-compose-linux-amd64-${RANCHER_COMPOSE_VERSION}.tar.gz /tmp/rancher-compose-${RANCHER_COMPOSE_VERSION}\
 	&& chmod +x /usr/local/bin/rancher-compose \
-  && curl https://glide.sh/get | sh
+  && curl https://glide.sh/get | sh \
+	&& curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
+	&& chmod +x /usr/local/bin/docker-compose
 
 # Cleanup image
 RUN apt-get autoremove -y -q
